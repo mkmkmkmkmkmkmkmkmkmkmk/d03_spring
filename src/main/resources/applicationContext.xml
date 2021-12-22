@@ -29,5 +29,15 @@
     <!--<bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="prototype"/>-->
 
     <!--6.对象的生命周期：spring可以指定普通方法变为生命周期方法-->
-    <bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="prototype" init-method="init" destroy-method="destroy"/>
+    <!--<bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="prototype" init-method="init" destroy-method="destroy"/>-->
+
+    <!--7.对象构造方法注入数据-->
+    <!--Date now=new Date();
+    UserDao userDao=new UserDaoImpl1(1,now);-->
+    <!--Date dte=new Date();-->
+    <bean id="now" class="java.util.Date"/>
+    <bean id="userDao" class="dao.impl.UserDaoImpl1" >
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="time" ref="now"/>
+    </bean>
 </beans>

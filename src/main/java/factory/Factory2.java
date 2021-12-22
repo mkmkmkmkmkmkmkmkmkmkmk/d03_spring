@@ -2,6 +2,7 @@ package factory;
 
 import dao.UserDao;
 import dao.impl.UserDaoImpl;
+import dao.impl.UserDaoImpl1;
 
 /**
  * @Author：Weiyu
@@ -13,6 +14,5 @@ public class Factory2 {
     private static UserDao getUserDao(){
         return new UserDaoImpl();
     }
-
 
 }

@@ -1,4 +1,5 @@
 import dao.UserDao;
+import dao.impl.UserDaoImpl1;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -50,10 +51,21 @@ public class SpringIocTest {
      */
     @Test
     public void LifeCycleTest(){
-        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        //ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassPathXmlApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
         UserDao userDao= applicationContext.getBean("userDao",UserDao.class);
         UserDao userDao1= applicationContext.getBean("userDao",UserDao.class);
-        System.out.println(userDao1==userDao);
+        System.out.println(userDao1 == userDao);
+    }
+    /**
+     * 6.1.对象的数据注入:构造方法注入
+     */
+    @Test
+    public void ConstructorTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDaoImpl1 userDao= applicationContext.getBean("userDao",UserDaoImpl1.class);
+        System.out.println(userDao.getTime());
+        System.out.println(userDao.getId());
     }
 
 }
