@@ -12,6 +12,8 @@ import java.util.Date;
  **/
 public class UserDaoImpl2 implements UserDao {
     private int id;
+    private Date time;
+
 
     public int getId() {
         return id;
@@ -29,7 +31,7 @@ public class UserDaoImpl2 implements UserDao {
         this.time = time;
     }
 
-    private Date time;
+
 
     @Override
     public void saveUser() {

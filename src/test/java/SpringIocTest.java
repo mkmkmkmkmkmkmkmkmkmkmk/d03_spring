@@ -78,5 +78,16 @@ public class SpringIocTest {
         System.out.println(userDao.getTime());
         System.out.println(userDao.getId());
     }
+    /**
+     * 8.对象的数据注入:p命名空间方法注入
+     */
+    @Test
+    public void PnamespaceTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDaoImpl2 userDao= applicationContext.getBean("userDao",UserDaoImpl2.class);
+        System.out.println(userDao.getTime());
+        System.out.println(userDao.getId());
+    }
+
 
 }

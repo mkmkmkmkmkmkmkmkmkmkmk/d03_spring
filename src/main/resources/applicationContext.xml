@@ -40,11 +40,16 @@
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="time" ref="now"/>
     </bean>-->
-    <!--8.set,get方法注入数据-->
-    <bean id="now" class="java.util.Date"/>
+
+    <!--8.对象set,get方法注入数据-->
+    <!--<bean id="now" class="java.util.Date"/>
     <bean id="userDao" class="dao.impl.UserDaoImpl2">
         <property name="time" ref="now"/>
         <property name="id" value="1"/>
-    </bean>
+    </bean>-->
+
+    <!--9.对象p命名空间注入数据:必须有set方法-->
+    <bean id="now" class="java.util.Date"/>
+    <bean id="userDao" class="dao.impl.UserDaoImpl2" p:id="1" p:time-ref="now"/>
 
 </beans>
