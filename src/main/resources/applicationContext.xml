@@ -7,4 +7,5 @@
     -->
     <!--2.org.springframework.context解耦dao层-->
     <bean id="userDao" class="dao.impl.UserDaoImpl"/>
+    <bean id="userDao1" class="dao.impl.UserDaoImpl"/>
 </beans>

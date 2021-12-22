@@ -18,6 +18,7 @@ public class UserServiceImpl implements UserService {
     //1.2根据id获取dao对象（需要转型）
     // private UserDao userDao= (UserDao) BeanFactory.getBean("userDao");
      //1.3根据id获取dao对象（不需要转型）
+    //private  UserDao userDao=BeanFactory.getBean("userDao",UserDao.class);
     private  UserDao userDao=BeanFactory.getBean("userDao",UserDao.class);
     public void regist(){
         userDao.saveUser();

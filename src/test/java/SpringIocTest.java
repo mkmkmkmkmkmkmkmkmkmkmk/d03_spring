@@ -18,9 +18,10 @@ public class SpringIocTest {
     public void SpringIocTest(){
         //初始化spring容器
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
-        UserDao userDao= applicationContext.getBean("userDao", UserDao.class);
+        //UserDao userDao= (UserDao) applicationContext.getBean("userDao");//1.按照名字
+        //UserDao userDao= applicationContext.getBean("userDao", UserDao.class);//2.按照名字
+        UserDao userDao= applicationContext.getBean(UserDao.class);//3.按照类型：具有局限性bean中id不允许重复：expected single matching bean but found 2: userDao,userDao1
         //从容器中获取想要的对象
         userDao.saveUser();
-
     }
 }
