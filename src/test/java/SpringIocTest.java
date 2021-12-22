@@ -1,5 +1,6 @@
 import dao.UserDao;
 import dao.impl.UserDaoImpl1;
+import dao.impl.UserDaoImpl2;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -58,12 +59,22 @@ public class SpringIocTest {
         System.out.println(userDao1 == userDao);
     }
     /**
-     * 6.1.对象的数据注入:构造方法注入
+     * 7.对象的数据注入:构造方法注入
      */
     @Test
     public void ConstructorTest(){
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
         UserDaoImpl1 userDao= applicationContext.getBean("userDao",UserDaoImpl1.class);
+        System.out.println(userDao.getTime());
+        System.out.println(userDao.getId());
+    }
+    /**
+     * 8.对象的数据注入:set方法注入
+     */
+    @Test
+    public void setInfuse(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDaoImpl2 userDao= applicationContext.getBean("userDao",UserDaoImpl2.class);
         System.out.println(userDao.getTime());
         System.out.println(userDao.getId());
     }

@@ -35,9 +35,16 @@
     <!--Date now=new Date();
     UserDao userDao=new UserDaoImpl1(1,now);-->
     <!--Date dte=new Date();-->
-    <bean id="now" class="java.util.Date"/>
+    <!--<bean id="now" class="java.util.Date"/>
     <bean id="userDao" class="dao.impl.UserDaoImpl1" >
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="time" ref="now"/>
+    </bean>-->
+    <!--8.set,get方法注入数据-->
+    <bean id="now" class="java.util.Date"/>
+    <bean id="userDao" class="dao.impl.UserDaoImpl2">
+        <property name="time" ref="now"/>
+        <property name="id" value="1"/>
     </bean>
+
 </beans>
