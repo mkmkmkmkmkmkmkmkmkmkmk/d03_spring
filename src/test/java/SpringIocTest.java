@@ -112,11 +112,11 @@ public class SpringIocTest {
     /**
      * 11.2 ：多个spring配置文件：平级关系
      */
-   /* @Test
+    @Test
     public void MultiConfigBrotherBeanXmlFile(){
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml","user.xml");
         UserDaoImpl2 userDao= applicationContext.getBean("userDao",UserDaoImpl2.class);
         System.out.println(userDao.toString());
         System.out.println(userDao.getMyList());
-    }*/
+    }
 }

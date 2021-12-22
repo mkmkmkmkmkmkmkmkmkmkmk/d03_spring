@@ -93,7 +93,7 @@
         </property>
     </bean>-->
     <!--11.1.多个spring配置文件包含关系-->
-    <import resource="classpath:user.xml"/>
+    <!--<import resource="classpath:user.xml"/>-->
 
 
 </beans>
