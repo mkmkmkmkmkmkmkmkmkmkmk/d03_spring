@@ -1,11 +1,25 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--
         对应的java代码：UserDao userDao = new UserDaoImpl1();
     -->
     <!--2.org.springframework.context解耦dao层-->
-    <bean id="userDao" class="dao.impl.UserDaoImpl"/>
-    <bean id="userDao1" class="dao.impl.UserDaoImpl"/>
+   <!-- <bean id="userDao" class="dao.impl.UserDaoImpl"/>
+    <bean id="userDao1" class="dao.impl.UserDaoImpl"/>-->
+
+    <!--3.实例工厂-->
+    <!--Factoryl factory1 = new Factory1();
+    UserDao userDao = factory.getUserDao();-->
+    <bean id="factory1"  class="factory.Factory1"/>
+    <bean id="userDao" factory-bean="factory1" factory-method="getUserDao"/>
+
+    <!--4.静态工厂-->
+    <!--UserDao userDao=factory2.getUserDao()-->
+    <!--<bean id="userDao" class="factory.Factory2" factory-method="getUserDao"  />-->
+
+    <!--5.p命名空间-->
+
 </beans>
