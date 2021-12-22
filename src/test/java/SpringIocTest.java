@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  **/
 public class SpringIocTest {
     /**
-     * 2.不使用BeanFactory自己解耦dao层，通过org.springframework.context
+     * 2.3.4.不使用BeanFactory自己解耦dao层，通过org.springframework.context
      * 中方法解耦dao层
      */
     @Test
@@ -23,5 +23,25 @@ public class SpringIocTest {
         //UserDao userDao= applicationContext.getBean(UserDao.class);//3.按照类型：具有局限性bean中id不允许重复：expected single matching bean but found 2: userDao,userDao1
         //从容器中获取想要的对象
         userDao.saveUser();
+    }
+    /**
+     * 5.1.测试单例
+     */
+    @Test
+    public void SingletonTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao= applicationContext.getBean("userDao",UserDao.class);
+        UserDao userDao1= applicationContext.getBean("userDao",UserDao.class);
+        System.out.println(userDao1==userDao);
+    }
+    /**
+     * 5.2.测试多例
+     */
+    @Test
+    public void PrototypeTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao= applicationContext.getBean("userDao",UserDao.class);
+        UserDao userDao1= applicationContext.getBean("userDao",UserDao.class);
+        System.out.println(userDao1==userDao);
     }
 }

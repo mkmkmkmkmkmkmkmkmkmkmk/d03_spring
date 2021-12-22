@@ -13,13 +13,19 @@
     <!--3.实例工厂-->
     <!--Factoryl factory1 = new Factory1();
     UserDao userDao = factory.getUserDao();-->
-    <bean id="factory1"  class="factory.Factory1"/>
-    <bean id="userDao" factory-bean="factory1" factory-method="getUserDao"/>
+   <!-- <bean id="factory1"  class="factory.Factory1"/>
+    <bean id="userDao" factory-bean="factory1" factory-method="getUserDao"/>-->
 
     <!--4.静态工厂-->
     <!--UserDao userDao=factory2.getUserDao()-->
     <!--<bean id="userDao" class="factory.Factory2" factory-method="getUserDao"  />-->
 
-    <!--5.p命名空间-->
+    <!--5.spring容器管理的对象默认都是单例的。-->
+    <!--5.在bean标签中使用scope属性指定对象的存活范围:-->
+    <!--5.1.Singleton 测试:默认为Singleton-->
+    <!--<bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="singleton"/>-->
+
+    <!--5.2.prototype-->
+    <bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="prototype"/>
 
 </beans>
