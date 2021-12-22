@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--2.引入外部的属性配置文件-->
+    <properties resource="jdbc.properties"/>
+
+   <!-- 3.覆盖默认的mybatis全局参数-->
+    <!--Java中属性的命名规范驼峰命名: createTime
+   关系数据库的字段命名规范用下划线分弱: create_time-->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!-- 4.配置别名-->
+    <!--方式一:对类型分别设置别名。缺点:工作量较大-->
+    <!--<typeAliases>
+        <typeAlias type="pojo.Student" alias="Student"></typeAlias>
+    </typeAliases>-->
+     <!--方式二:批量设置别名,指定包名即可
+     mybaits会将该包下的所有类型指定简单类名作为别名，
+     比如icom.offcn.domain.Student别名就是Student或STUDENT或student（不区分大小写)-->
+     <!--<typeAliases>
+         <package name="pojo"/>
+     </typeAliases>-->
+    
+    <!--5.分页插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+    </plugins>
+
+     <!--1.数据源配置-->
+     <environments default="test">
+         <environment id="test">
+             <!--事务管理器配置：此处暂时采用mybatis内置的事务管理器JDBC-->
+            <transactionManager type="JDBC"/>
+            <!--数据源配置：此处暂时使用mybatis内置的带有连接池的数据源POOLED-->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+        </environments>
+    <!--6.1.指定映射文件的路径〔相对于classpath)-->
+   <!-- <mappers>
+        <mapper resource="mapper/StudentMapper.xml"/>
+    </mappers>-->
+
+    <!--6.2.通过注册Mapper接口的方式-->
+    <!--映射文件编写遵循以下要求:-->
+    <!--a、映射文件所在的文件夹必须和Mapper接口的包完全一致-->
+    <!--b、映射文件的主文件名必须和Mapper接口的类名完全一致-->
+    <!--<mappers>
+        <mapper resource="mapper.StudentMapper"/>
+    </mappers>-->
+
+    <!--6.3批量注册:推荐使用这种-->
+    <!--mybatis将会按照默认规则依次注册包中所有接口对应的映射文件。-->
+    <mappers>
+        <package name="mapper"/>
+    </mappers>
+
+
+
+</configuration>
