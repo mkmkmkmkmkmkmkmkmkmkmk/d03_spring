@@ -13,4 +13,6 @@ public class Factory2 {
     private static UserDao getUserDao(){
         return new UserDaoImpl();
     }
+
+
 }

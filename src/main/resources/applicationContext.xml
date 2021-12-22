@@ -26,6 +26,8 @@
     <!--<bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="singleton"/>-->
 
     <!--5.2.prototype-->
-    <bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="prototype"/>
+    <!--<bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="prototype"/>-->
 
+    <!--6.对象的生命周期：spring可以指定普通方法变为生命周期方法-->
+    <bean id="userDao" class="factory.Factory2" factory-method="getUserDao" scope="prototype" init-method="init" destroy-method="destroy"/>
 </beans>

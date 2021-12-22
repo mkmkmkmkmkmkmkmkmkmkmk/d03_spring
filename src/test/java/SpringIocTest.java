@@ -44,4 +44,16 @@ public class SpringIocTest {
         UserDao userDao1= applicationContext.getBean("userDao",UserDao.class);
         System.out.println(userDao1==userDao);
     }
+    /**
+     * 6.测试对象生命周期:init-method,destroy-method
+     * 看不到初始化结束为什么？
+     */
+    @Test
+    public void LifeCycleTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao= applicationContext.getBean("userDao",UserDao.class);
+        UserDao userDao1= applicationContext.getBean("userDao",UserDao.class);
+        System.out.println(userDao1==userDao);
+    }
+
 }
