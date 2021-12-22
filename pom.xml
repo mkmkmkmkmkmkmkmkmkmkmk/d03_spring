@@ -58,8 +58,6 @@
         <version>1.2.0</version>
       </dependency>
 
-
-
       <dependency>
         <groupId>commons-dbutils</groupId>
         <artifactId>commons-dbutils</artifactId>
@@ -262,7 +260,7 @@
               <!-- 通过maven tomcat7:run运行项目时，访问项目的端口号 -->
               <port>8081</port>
               <!-- 项目访问路径  本例：localhost:8080,  如果配置的rest， 则访问路径为localhost:9090/rest-->
-              <path>/rest</path>
+              <path>/d03_spring</path>
               <ignorePackaging>true</ignorePackaging>
             </configuration>
           </plugin>

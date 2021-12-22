@@ -1,0 +1,10 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        对应的java代码：UserDao userDao = new UserDaoImpl1();
+    -->
+    <!--2.org.springframework.context解耦dao层-->
+    <bean id="userDao" class="dao.impl.UserDaoImpl"/>
+</beans>
