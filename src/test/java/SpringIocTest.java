@@ -79,7 +79,7 @@ public class SpringIocTest {
         System.out.println(userDao.getId());
     }
     /**
-     * 8.对象的数据注入:p命名空间方法注入
+     * 8.9.对象的数据注入:p命名空间方法注入
      */
     @Test
     public void PnamespaceTest(){
@@ -87,6 +87,16 @@ public class SpringIocTest {
         UserDaoImpl2 userDao= applicationContext.getBean("userDao",UserDaoImpl2.class);
         System.out.println(userDao.getTime());
         System.out.println(userDao.getId());
+    }
+    /**
+     * 10.Bean管理之复杂数据注入
+     */
+    @Test
+    public void ComplexTypeInfuseTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDaoImpl2 userDao= applicationContext.getBean("userDao",UserDaoImpl2.class);
+        System.out.println(userDao.toString());
+        System.out.println(userDao.getMyList());
     }
 
 
