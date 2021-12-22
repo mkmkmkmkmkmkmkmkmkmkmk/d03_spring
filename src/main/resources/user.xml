@@ -1,0 +1,39 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="now" class="java.util.Date"/>
+    <bean id="userDao" class="dao.impl.UserDaoImpl2">
+        <!--10.1.array注入：private String[] myStr;-->
+        <property name="myStr">
+            <array>
+                <value>b</value>
+                <value>c</value>
+            </array>
+        </property>
+        <!--10.2.List注入:private List<String> myList;-->
+        <property name="myList">
+            <list>
+                <value>str1</value>
+                <value>str2</value>
+            </list>
+        </property>
+        <!--10.3.Set注入：private Set<String> mySet ;-->
+        <property name="mySet">
+            <set>
+                <value>1</value>
+                <value>1</value>
+                <value>2</value>
+            </set>
+        </property>
+        <!--10.4.properties:private Properties myProp;-->
+        <property name="myProp">
+            <props>
+                <prop key="key1">v1</prop>
+                <prop key="key2">v2</prop>
+                <prop key="key3">v3</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

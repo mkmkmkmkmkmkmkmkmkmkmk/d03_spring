@@ -3,6 +3,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
     <!--
         对应的java代码：UserDao userDao = new UserDaoImpl1();
     -->
@@ -57,24 +58,24 @@
     <!--private List<String> myList;-->
     <!--private Set<String> mySet ;-->
     <!--private Properties myProp;-->
-    <bean id="now" class="java.util.Date"/>
+   <!-- <bean id="now" class="java.util.Date"/>
 
     <bean id="userDao" class="dao.impl.UserDaoImpl2">
-        <!--10.1.array注入：private String[] myStr;-->
+        &lt;!&ndash;10.1.array注入：private String[] myStr;&ndash;&gt;
         <property name="myStr">
             <array>
                 <value>b</value>
                 <value>c</value>
             </array>
         </property>
-        <!--10.2.List注入:private List<String> myList;-->
+        &lt;!&ndash;10.2.List注入:private List<String> myList;&ndash;&gt;
         <property name="myList">
             <list>
                 <value>str1</value>
                 <value>str2</value>
             </list>
         </property>
-        <!--10.3.Set注入：private Set<String> mySet ;-->
+        &lt;!&ndash;10.3.Set注入：private Set<String> mySet ;&ndash;&gt;
         <property name="mySet">
             <set>
                 <value>1</value>
@@ -82,7 +83,7 @@
                 <value>2</value>
             </set>
         </property>
-        <!--10.4.properties:private Properties myProp;-->
+        &lt;!&ndash;10.4.properties:private Properties myProp;&ndash;&gt;
         <property name="myProp">
           <props>
               <prop key="key1">v1</prop>
@@ -90,7 +91,9 @@
               <prop key="key3">v3</prop>
           </props>
         </property>
-    </bean>
+    </bean>-->
+    <!--11.1.多个spring配置文件包含关系-->
+    <import resource="classpath:user.xml"/>
 
 
 </beans>

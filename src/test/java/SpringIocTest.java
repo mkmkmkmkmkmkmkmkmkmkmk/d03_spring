@@ -98,6 +98,25 @@ public class SpringIocTest {
         System.out.println(userDao.toString());
         System.out.println(userDao.getMyList());
     }
-
-
+    /**
+     * 11.1.多个spring配置文件：主从关系（注意:如果多个配置文件中存在重名的对象，后加载的会覆盖前面的。）
+     *
+     */
+    @Test
+    public void MultiConfigBeanXmlFile(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDaoImpl2 userDao= applicationContext.getBean("userDao",UserDaoImpl2.class);
+        System.out.println(userDao.toString());
+        System.out.println(userDao.getMyList());
+    }
+    /**
+     * 11.2 ：多个spring配置文件：平级关系
+     */
+   /* @Test
+    public void MultiConfigBrotherBeanXmlFile(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml","user.xml");
+        UserDaoImpl2 userDao= applicationContext.getBean("userDao",UserDaoImpl2.class);
+        System.out.println(userDao.toString());
+        System.out.println(userDao.getMyList());
+    }*/
 }

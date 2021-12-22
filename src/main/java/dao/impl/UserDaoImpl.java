@@ -1,8 +1,6 @@
 package dao.impl;
 
 import dao.UserDao;
-import org.junit.After;
-import org.junit.Before;
 
 /**
  * @Author：Weiyu
